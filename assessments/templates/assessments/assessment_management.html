@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% load static %}
+{% block content %}
+<div class="section bg-light">
+ <div class="col-12 pt-3">
+  <h4 class="text-center">Assessment Management</h4>
+  <div class="block-divider"></div>
+  <div class="text-center mb-2">
+   <a href="{% url 'add_assessment' %}" class="btn">Add Assessment</a>
+  </div>
+ </div>
+ <div class="container">
+  <div class="row">
+   {% for assessment in assessments %}
+   <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+     <h5 class="card-header">{{ assessment.name }}</h5>
+     <div class="card-body">
+      <p class="card-text">{{ assessment.description }}</p>
+      <a href="{% url 'edit_assessment' assessment.id %}" class="btn">Edit</a>
+      <a href="{% url 'question_management' assessment.id %}" class="btn">Questions</a>
+      <a href="{% url 'delete_assessment' assessment.id %}" class="btn btn-danger">Delete</a>
+     </div>
+    </div>
+   </div>
+   {% endfor %}
+  </div>
+ </div>
+</div>
+{% endblock %}

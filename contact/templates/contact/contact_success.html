@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="section bg-light">
+ <div class="container pt-3">
+  <div class="col-12">
+   <h4 class="text-center">Message Sent</h4>
+   <hr class="w-100 mb-1">
+  </div>
+ </div>
+ <div class="row mb-2">
+  <div class="container">
+   <h5 class="text-center">Thank you for getting in touch {{ contact.name }}, we will respond to your
+    query as soon as possible, your contact details are below.</h5>
+  </div>
+ </div>
+ <div class="row">
+  <div class="container mb-2">
+   <div class="row">
+    <div class="col-12 text-center">
+     <small class="text-muted">Contact Information:</small>
+    </div>
+   </div>
+
+   <div class="row">
+    <div class="col-12">
+     <p class="mb-0 font-weight-bold text-center">Name: {{ contact.name }}</p>
+    </div>
+   </div>
+
+   <div class="row">
+    <div class="col-12">
+     <p class="mb-0 font-weight-bold text-center">Contact Email: {{ contact.contact_email }}</p>
+    </div>
+   </div>
+
+   <div class="row">
+    <div class="col-12">
+     <p class="mb-0 font-weight-bold text-center">Contact Phone: {{ contact.contact_phone }}</p>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <div class="row">
+  <div class="col text-center mb-3">
+   <a href="{% url 'home' %}" class="btn">
+    <span>Home</span>
+   </a>
+  </div>
+ </div>
+</div>
+{% endblock %}

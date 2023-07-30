@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap');
+
+/*----General-*/
+body {
+ overflow-x: hidden;
+ font-family: 'Raleway', sans-serif;
+}
+
+.section {
+ min-height: 63vh;
+}
+
+a {
+ color: inherit;
+}
+
+a:hover {
+ color: #76BA1B;
+}
+
+.center {
+ margin: auto;
+}
+
+/*----Buttons-*/
+.btn:hover {
+ color: #ffffff;
+ background-color: #000000;
+}
+
+.btn {
+ color: #000000;
+ background-color: #76BA1B;
+}
+
+.btn-cart {
+ margin-left: 5px;
+}
+
+/*----Form Customization-*/
+.form-check .form-check-input {
+ float: none;
+ margin-left: -1.5em;
+}
+
+/*----Nav-*/
+nav {
+ border-bottom: 3px solid black;
+}
+
+.hvr-sweep-to-right::before {
+ height: 5px;
+ margin-top: 30px;
+}
+
+/*----Title Text-*/
+.title-text {
+ padding-top: 20px;
+ font-size: 60px;
+ font-weight: 500;
+}
+
+.subtitle {
+ padding-bottom: 20px;
+ text-transform: uppercase;
+ font-size: 30px;
+}
+
+.text-green {
+ color: #76BA1B;
+}
+
+.contact-container {
+ padding-bottom: 20px;
+}
+
+/*----Blockdivider-*/
+.block-divider {
+ width: 150px;
+ height: 5px;
+ border: 0;
+ background-color: black;
+ margin: auto;
+ margin-top: 20px;
+ margin-bottom: 20px;
+}
+
+/*----Images-*/
+.img {
+ width: 50%;
+ height: auto;
+ border-radius: 0.5rem;
+}
+
+.profile-img {
+ width: auto;
+ height: auto;
+ border-radius: 0.5rem;
+}
+
+.small-img {
+ width: 75%;
+ height: auto;
+ border-radius: 0.5rem;
+}
+
+/*------Toasts/Messages-*/
+.message-container {
+ position: fixed;
+ top: 4.5rem;
+ right: 0.9375rem;
+ z-index: 99999999999;
+}
+
+.custom-toast {
+ overflow: visible;
+}
+
+.toast-capper {
+ height: 0.125rem;
+}
+
+.top-padding {
+ padding-top: 6.25rem;
+}
+
+/*------Stripe-*/
+.StripeElement {
+ box-sizing: border-box;
+ height: 2.5rem;
+ padding: 0.625rem 0.75rem;
+ border: 0.0625rem solid transparent;
+ background-color: white;
+}
+
+.StripeElement--webkit-autofill {
+ background-color: #fefde5 !important;
+}
+
+.stripe-style-input::placeholder {
+ color: #aab7c4;
+}
+
+#checkout-form .form-control,
+#card-element {
+ color: #000;
+ border: 0.0625rem solid #000;
+ border-radius: 0.5rem;
+}
+
+/*----Footer-*/
+footer {
+ border-top: 3px solid black;
+}
+
+.footer-text {
+ text-align: center;
+}
+
+footer a {
+ margin-right: 10px;
+}

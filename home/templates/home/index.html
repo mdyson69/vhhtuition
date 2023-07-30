@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<!--Welcome Text-->
+<div class="section bg-light">
+  <div class="container pt-3">
+    <div class="col-12">
+      <h4 class="text-center text-green">Welcome!</h4>
+      <p class="text-center">
+        Within this site, you’ll hopefully find some very useful stuff to help
+        you and your child navigate the world of Mathematics at school.
+      </p>
+      <p class="text-center">
+        Do you often say “They do Maths differently nowadays!”? Then this is the site for you!
+      </p>
+      <p class="text-center">
+        Here you’ll find help for parents, jargon busters and full
+        worked out examples for those ever so difficult Maths problems.
+      </p>
+    </div>
+  </div>
+
+  <!--Image-->
+  <div class="container">
+    <div class="col-12">
+      <div class="text-center">
+        <img class="img" src="{% static 'images/composition-creativity-desk-education-207756.jpg' %}"
+          alt="Maths Image" />
+      </div>
+    </div>
+  </div>
+
+  <!--Featured Courses-->
+  <div class="container pt-4">
+    <div class="col-12">
+      <h3 class="text-center text-green">Featured Courses</h3>
+      <div class="block-divider"></div>
+    </div>
+    <div class="row">
+      {% for course in courses %}
+      <div class="col-md-4">
+        <div class="card text-center" style="width: 18rem;">
+          <h5 class="card-header">{{ course.name }}</h5>
+          <div class="card-body">
+            <p class="card-text">Level: {{ course.level }}</p>
+            <a href="{% url 'view_course' course.id %}" class="btn">View</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!--Testimonial-->
+  <div class="container pt-4">
+    <div class="col-12">
+      <h3 class="text-center text-green">Testimonials</h3>
+      <div class="block-divider"></div>
+    </div>
+    <div class="row text-center">
+      <p>
+        Holly did really well in her Maths tests, even her teacher commented.
+        She was ten marks above the tests that she did before you started coming
+        round and was on the higher end of the class this time so is really
+        pleased! You are definitely making a difference and so we are grateful
+        for that. Thank you!
+      </p>
+      <p class="fst-italic">Jane, Parent, Wellingborough</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

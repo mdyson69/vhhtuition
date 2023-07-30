@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="section bg-light">
+ <div class="col-12 pt-3">
+  <h4 class="text-center">Your Course</h4>
+  <div class="block-divider"></div>
+  <h5 class="text-center">Thank you for your purchase, your coursebook is below and can be viewed anytime from your <a
+    href="{% url 'profile'%}">Profile.</a></h5>
+ </div>
+ <div class="container">
+  <div class="row">
+   <div class="col-12">
+    {% for item in order.lineitems.all %}
+    <div class="card text-center mb-3">
+     <h5 class="card-header">{{ item.course.name }}</h5>
+     <div class="card-body">
+      <iframe src="{{ item.course.pdf_url }}" width="100%" height="800px"></iframe>
+     </div>
+    </div>
+    {% endfor %}
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock %}

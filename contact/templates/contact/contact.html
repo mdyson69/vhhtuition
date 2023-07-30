@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %}
+{% block content %}
+<!-- Contact Form -->
+<div class="section bg-light">
+  <div class="container pt-3">
+    <div class="col-12">
+      <h4 class="text-center">Contact Me</h4>
+      <h5 class="text-center">Please fill in the form below and we will respond to your query as soon as possible</h5>
+      <hr class="w-100 mb-3">
+    </div>
+    <div class="col-12">
+      <form action="{% url 'contact' %}" method="POST" id="contact-form">
+        {% csrf_token %}
+        <fieldset class="rounded px-3 mb-2">
+          {{ contact_form.name | as_crispy_field }}
+          {{ contact_form.contact_email | as_crispy_field }}
+          {{ contact_form.contact_phone | as_crispy_field }}
+          {{ contact_form.subject | as_crispy_field }}
+          {{ contact_form.message | as_crispy_field }}
+        </fieldset>
+        <div class="text-center mb-3">
+          <a href="{% url 'home' %}" class="btn">
+            <span class="icon">
+              <i class="fas fa-chevron-left"></i>
+            </span>
+            <span>Back</span>
+          </a>
+          <button id="contact-button" class="btn">
+            <span>Send</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

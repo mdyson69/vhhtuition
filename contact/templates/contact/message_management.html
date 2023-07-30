@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% load static %}
+{% block content %}
+<div class="section bg-light">
+ <div class="col-12 pt-3">
+  <h4 class="text-center">Messages</h4>
+  <div class="block-divider"></div>
+ </div>
+ <div class="container">
+  <div class="row">
+   <div class="col-12">
+    {% for contact in contacts %}
+    <div class="card mb-3">
+     <h5 class="card-header">{{ contact.subject }}</h5>
+     <div class="card-body">
+      <div>Name: {{ contact.name }}</div>
+      <div>Email: {{ contact.contact_email }}</div>
+      <div>Phone: {{ contact.contact_phone }}</div>
+      <p class="card-text">{{ contact.message }}</p>
+      <div class="text-center">
+       <a href="mailto:{{ contact.contact_email }}" class="btn">Reply</a>
+       <a href="{% url 'delete_message' contact.id %}" class="btn btn-danger">Delete</a>
+      </div>
+     </div>
+    </div>
+    {% endfor %}
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock %}

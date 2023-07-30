@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% load static %}
+{% block content %}
+<div class="section bg-light">
+ <div class="col-12 pt-3">
+  <h4 class="text-center">Course Management</h4>
+  <div class="block-divider"></div>
+  <div class="text-center mb-2">
+   <a href="{% url 'add_course' %}" class="btn">Add Course</a>
+  </div>
+ </div>
+ <div class="container">
+  <div class="row">
+   {% for course in courses %}
+   <div class="col-md-4 pb-3">
+    <div class="card" style="width: 18rem;">
+     <h5 class="card-header">{{ course.name }}</h5>
+     <div class="card-body">
+      <a href="{% url 'edit_course' course.id %}" class="btn">Edit</a>
+      <a href="{% url 'delete_course' course.id %}" class="btn btn-danger">Delete</a>
+     </div>
+    </div>
+   </div>
+   {% endfor %}
+  </div>
+ </div>
+</div>
+{% endblock %}

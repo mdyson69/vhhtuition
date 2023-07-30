@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<!--Courses-->
+<div class="section bg-light">
+  <div class="container pt-3">
+    <div class="col-12">
+      <h4 class="text-center text-green">Courses</h4>
+      <div class="block-divider"></div>
+    </div>
+    <div class="container">
+      <div class="row">
+        {% for course in courses %}
+        <div class="col-md-4">
+          <div class="card text-center" style="width: 18rem;">
+            <h5 class="card-header">{{ course.name }}</h5>
+            <div class="card-body">
+              <p class="card-text">Level: {{ course.level }}</p>
+              <a href="{% url 'view_course' course.id %}" class="btn">View</a>
+            </div>
+          </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center">
+          <h5>Sorry we couldn't find that course!</h5>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

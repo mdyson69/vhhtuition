@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% load static %}
+{% block content %}
+{% for assessment in assessments %}
+<div class="section bg-light">
+ <div class="col-12 pt-3">
+  <h4 class="text-center">{{ assessment.name }}</h4>
+  <div class="block-divider"></div>
+ </div>
+ <div class="container">
+  <div class="row">
+   <div class="col-12">
+    {% for question in questions %}
+    <div class="card mb-3">
+     <h5 class="card-header">Question {{ question.question_number }}</h5>
+     <div class="card-body">
+      <p class="card-text">{{ question.question }}</p>
+     </div>
+    </div>
+    {% endfor %}
+   </div>
+  </div>
+ </div>
+</div>
+{% endfor %}
+{% endblock %}

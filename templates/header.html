@@ -1,0 +1,100 @@
+{% load static %}
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item hvr-sweep-to-right">
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item hvr-sweep-to-right">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+        <li class="nav-item hvr-sweep-to-right">
+          <a class="nav-link" href="{% url 'display_courses'%}">Courses</a>
+        </li>
+        <!--<li class="nav-item hvr-sweep-to-right">
+          <a class="nav-link" href="{% url 'display_challenges'%}">Challenges</a>
+        </li>-->
+        <li class="nav-item hvr-sweep-to-right">
+          <a class="nav-link" href="{% url 'contact'%}">Contact</a>
+        </li>
+        {% if request.user.is_superuser %}
+        <li class="nav-item dropdown hvr-sweep-to-right">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Admin
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'message_management' %}">Messages</a></li>
+            <li><a class="dropdown-item" href="{% url 'assessment_management' %}">Assessment Management</a></li>
+            <li>
+            <li><a class="dropdown-item" href="{% url 'course_management' %}">Course Management</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+          </ul>
+        </li>
+        {% else %}
+        {% if request.user.is_authenticated %}
+        <li class="nav-item hvr-sweep-to-right">
+          <a class="nav-link" href="{% url 'profile' %}">My Profile</a>
+        </li>
+        <li class="nav-item hvr-sweep-to-right">
+          <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item hvr-sweep-to-right">
+          <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+        </li>
+        <li class="nav-item hvr-sweep-to-right">
+          <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+        </li>
+        {% endif %}
+        {% endif %}
+      </ul>
+      <form class="d-flex" action="{% url 'search' %}">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" />
+        <button class="btn btn-outline-success" type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+      <a href="{% url 'view_cart' %}" class="btn btn-cart btn-outline-success">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!--Title-->
+<div class="container">
+  <div class="col-12">
+    <div class="title-text text-center">Verity's Maths Place</div>
+    <div class="subtitle text-center">Maths Tuition</div>
+  </div>
+</div>
+
+<div class="container contact-container bottom-shadow">
+  <div class="col-12">
+    <div class="row mt-2 pb-2">
+      <div class="col-sm text-center pt-2">
+        <span><i class="fas fa-phone"></i> 07729237478</span>
+      </div>
+      <div class="col-sm text-center pt-2">
+        <span><i class="fas fa-envelope"></i>
+          <a href="mailto:verity@vhhtuition.co.uk">verity@vhhtuition.co.uk</a>
+        </span>
+      </div>
+      <div class="col-sm text-center pt-2">
+        <span><i class="fas fa-map-pin"></i> Irchester, Northamptonshire</span>
+      </div>
+    </div>
+  </div>
+</div>
